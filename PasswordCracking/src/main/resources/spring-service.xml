@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--扫描service下的包，有注解就自动扫描过来-->
+    <context:component-scan base-package="com.hrbustsecond.service"/>
+
+    <!--扫描util包-->
+    <context:component-scan base-package="com.hrbustsecond.util"/>
+    <!--将所有业务类注入spring，配置或注解
+    <bean id="UserServiceImpl" class="com.juyuanheshun.intro.service.JuyuanheshunUserServiceImpl">
+        <property name="juyuanheshun_usermapper" ref="juyuanheshun_UserMapper"/>
+    </bean>-->
+
+    <!--声明事务配置-->
+    <bean id="TransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--aop-->
+    <!--<bean id="ApplicationContextUtil"-->
+          <!--class="com.hrbustsecond.util.ApplicationContextUtil"/>-->
+</beans>
